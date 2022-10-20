@@ -14,4 +14,16 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Orders\Application" />
+      <Folder Include="Orders\Domain" />
+      <Folder Include="Orders\Infrastructure" />
+      <Folder Include="Products\Application" />
+      <Folder Include="Products\Domain" />
+      <Folder Include="Products\Infrastructure" />
+      <Folder Include="PromotionPolicies\Application" />
+      <Folder Include="PromotionPolicies\Domain" />
+      <Folder Include="PromotionPolicies\Infrastructure" />
+    </ItemGroup>
+
 </Project>
