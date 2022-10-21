@@ -21,7 +21,7 @@ public class CreateProductCommandHandlerTest
     public async Task WhenCreateProductCommandIsHandled_ThenProductIsCreated()
     {
         // Arrange
-        var command = new CreateProductCommand("Test product", "Test description", 10, 10.0m);
+        var command = new CreateProductCommand("Test product", "Test description", 10, 10.0m, 1);
         
         // Act
         var result = await _handler.Handle(command, CancellationToken.None);

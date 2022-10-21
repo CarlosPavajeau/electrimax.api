@@ -12,7 +12,8 @@ public static class ProductMother
             faker.Random.Word(),
             faker.Random.Word(),
             faker.Random.Int(1, 1000),
-            faker.Random.Decimal(1, 1000)
+            faker.Random.Decimal(1, 1000),
+            faker.Random.Int(1, 10)
         );
     }
 }

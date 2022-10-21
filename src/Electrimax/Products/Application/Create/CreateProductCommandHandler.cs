@@ -10,5 +10,5 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
     }
 
     public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken) =>
-        await _creator.Create(request.Name, request.Color, request.Quantity, request.Price);
+        await _creator.Create(request.Name, request.Color, request.Quantity, request.Price, request.SalesDepartmentId);
 }

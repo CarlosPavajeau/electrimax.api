@@ -11,9 +11,9 @@ public class ProductCreator
         _context = context;
     }
 
-    public async Task<Guid> Create(string name, string color, int quantity, decimal price)
+    public async Task<Guid> Create(string name, string color, int quantity, decimal price, int salesDepartmentId)
     {
-        var product = Product.Create(name, color, quantity, price);
+        var product = Product.Create(name, color, quantity, price, salesDepartmentId);
 
         await _context.AddAsync(product);
         await _context.SaveChangesAsync();

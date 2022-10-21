@@ -1,4 +1,7 @@
-﻿namespace Electrimax.Products.Domain;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Electrimax.SalesDepartments.Domain;
+
+namespace Electrimax.Products.Domain;
 
 public class Product
 {
@@ -16,8 +19,13 @@ public class Product
     public decimal Price { get; set; }
 
     public DateTime CreatedAt { get; set; }
+    
+    [ForeignKey(nameof(SalesDepartmentId))]
+    public SalesDepartment SalesDepartment { get; set; }
 
-    public static Product Create(string name, string color, int quantity, decimal price)
+    public int SalesDepartmentId { get; set; }
+
+    public static Product Create(string name, string color, int quantity, decimal price, int salesDepartmentId)
     {
         return new Product
         {
@@ -26,6 +34,7 @@ public class Product
             Color = color,
             Quantity = quantity,
             Price = price,
+            SalesDepartmentId = salesDepartmentId,
             CreatedAt = DateTime.UtcNow
         };
     }
