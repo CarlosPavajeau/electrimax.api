@@ -19,5 +19,5 @@ public class OrderItem
     public Guid ProductId { get; set; }
 
     public int Quantity { get; set; }
-    [Precision(2)] public decimal Price { get; set; }
+    [Precision(10, 3)] public decimal Price { get; set; }
 }

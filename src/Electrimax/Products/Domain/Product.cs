@@ -17,7 +17,7 @@ public class Product
 
     public int Quantity { get; set; }
 
-    [Precision(2)] public decimal Price { get; set; }
+    [Precision(10, 3)] public decimal Price { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
