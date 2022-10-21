@@ -13,6 +13,9 @@ public class OrdersSearcher
 
     public async Task<IEnumerable<Order>> SearchAll()
     {
-        return await _dbContext.Set<Order>().ToListAsync();
+        return await _dbContext.Set<Order>()
+            .Include(x => x.Items)
+            .ThenInclude(x => x.Product)
+            .ToListAsync();
     }
 }
