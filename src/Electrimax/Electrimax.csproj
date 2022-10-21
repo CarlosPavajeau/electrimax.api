@@ -15,9 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Orders\Application" />
-      <Folder Include="Orders\Domain" />
-      <Folder Include="Orders\Infrastructure" />
       <Folder Include="PromotionPolicies\Application" />
       <Folder Include="PromotionPolicies\Domain" />
       <Folder Include="PromotionPolicies\Infrastructure" />
