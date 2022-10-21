@@ -14,12 +14,12 @@ public class Order
 
     public DateTime CreatedAt { get; set; }
 
-    public decimal SubTotal { get; set; }
-    public decimal Total { get; set; }
-    public decimal Discount { get; set; }
+    [Precision(2)] public decimal SubTotal { get; set; }
+    [Precision(2)] public decimal Total { get; set; }
+    [Precision(2)] public decimal Discount { get; set; }
 
     public ICollection<OrderItem> Items { get; set; } = new HashSet<OrderItem>();
-    
+
     public void CalculateTotal()
     {
         SubTotal = Items.Sum(x => x.Price * x.Quantity);
