@@ -18,9 +18,6 @@ public class SearchAllSalesDepartmentsQueryHandlerTest : IAsyncLifetime
         _handler = new SearchAllSalesDepartmentsQueryHandler(new SalesDepartmentSearcher(_context));
     }
 
-    // Setup
-
-
     [Fact]
     public async Task WhenSearchAllSalesDepartments_ThenReturnAllSalesDepartments()
     {
