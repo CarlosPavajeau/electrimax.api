@@ -3,7 +3,7 @@
 public sealed record OrderResponse(
     Guid Id,
     string CustomerId,
-    string CustomerName,
+    string CustomerAddress,
     DateTime CreatedAt,
     decimal SubTotal,
     decimal Total,
