@@ -1,18 +1,18 @@
 ﻿using Electrimax.Products.Domain;
+using MediatR.Pipeline;
 
 namespace Electrimax.Orders.Application.Create;
 
-public class CreateOrderCommandBehavior : IPipelineBehavior<CreateOrderCommand, Guid>
+public class CreateOrderCommandPreProcessor : IRequestPreProcessor<CreateOrderCommand>
 {
     private readonly DbContext _context;
 
-    public CreateOrderCommandBehavior(DbContext context)
+    public CreateOrderCommandPreProcessor(DbContext context)
     {
         _context = context;
     }
 
-    public async Task<Guid> Handle(CreateOrderCommand request, RequestHandlerDelegate<Guid> next,
-        CancellationToken cancellationToken)
+    public async Task Process(CreateOrderCommand request, CancellationToken cancellationToken)
     {
         var canCreateOrder = await CanCreateOrder(request, cancellationToken);
 
@@ -20,8 +20,6 @@ public class CreateOrderCommandBehavior : IPipelineBehavior<CreateOrderCommand, 
         {
             throw new InvalidOperationException("Cannot create order");
         }
-
-        return await next();
     }
 
     private async Task<bool> CanCreateOrder(CreateOrderCommand request, CancellationToken cancellationToken)
