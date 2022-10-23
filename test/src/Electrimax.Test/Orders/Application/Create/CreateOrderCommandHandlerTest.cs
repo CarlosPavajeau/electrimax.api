@@ -2,7 +2,9 @@
 using Electrimax.Orders.Domain;
 using Electrimax.Shared.Infrastructure.Persistence;
 using Electrimax.Test.Shared.DbOptions;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 
 namespace Electrimax.Test.Orders.Application.Create;
 
@@ -14,7 +16,7 @@ public class CreateOrderCommandHandlerTest
     public CreateOrderCommandHandlerTest()
     {
         _context = new ElectrimaxDbContext(InMemoryDbOptions.Options);
-        _handler = new CreateOrderCommandHandler(new OrderCreator(_context));
+        _handler = new CreateOrderCommandHandler(new OrderCreator(_context), Mock.Of<IMediator>());
     }
 
     [Fact]
