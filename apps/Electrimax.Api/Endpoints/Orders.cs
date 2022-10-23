@@ -21,8 +21,15 @@ public static class Orders
 
     private static async Task<IResult> CreateOrder(IMediator mediator, [FromBody] CreateOrderCommand command)
     {
-        var order = await mediator.Send(command);
+        try
+        {
+            var order = await mediator.Send(command);
 
-        return Results.Ok(order);
+            return Results.Ok(order);
+        }
+        catch (InvalidOperationException e)
+        {
+            return Results.BadRequest(e.Message);
+        }
     }
 }
