@@ -39,4 +39,14 @@ public class Product
             CreatedAt = DateTime.UtcNow
         };
     }
+
+    public void DecreaseStock(int amountToDecrease)
+    {
+        if (Quantity - amountToDecrease < 1)
+        {
+            throw new InvalidOperationException("Cannot decrease stock below 1");
+        }
+
+        Quantity -= amountToDecrease;
+    }
 }
