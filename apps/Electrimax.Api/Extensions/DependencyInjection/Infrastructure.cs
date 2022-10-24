@@ -24,6 +24,8 @@ public static class Infrastructure
 
         services.AddRouting(route => route.LowercaseUrls = true);
 
+        services.ConfigureCors();
+
         return services;
     }
 
